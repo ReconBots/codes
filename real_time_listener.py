@@ -55,7 +55,7 @@ def record_audio():
             if is_silent(data):
                 silent_chunks += 1
             else:
-                print("ouvindo...")
+                print("Listening...")
                 silent_chunks = 0                
                 frame_counter += 1
             
@@ -64,7 +64,7 @@ def record_audio():
  
             # Save the audio file if silence is detected for a specific duration
             if silent_chunks > (RATE // CHUNK * SILENCE_DURATION):
-                print("estou aqui")
+                print("silent")
                 if frame_counter>4:
                     filename = f"./data/{FILENAME_PREFIX}_{file_counter}.wav"
                     save_audio(filename, audio_frames)
@@ -121,15 +121,15 @@ def chamada(audio):
 def comandos(comand):
     finish = True
     if 'follow me' in comand:
-        print('ação: seguir pessoa')
+        print("Action: Follow Person...")
     elif 'get it' in comand:
-        print('ação: ativando garra')
+        print("Action: Activating Claw")
     elif 'talk' in comand:
-        print('ação: falando')
+        print("Action: Hi everybody, I'm SARAH!")
     elif 'find the leader' in comand:
-        print('ação: mirando na pessoa')
+        print("Action: Aiming at the person")
     else:
-        print(f"no '{comand}', não encontrei o comando registrado, tente novamente mais tarde")
+        print(f"no '{comand}', I didn't find the registered command, please try again later")
         finish = False
     
     return finish
